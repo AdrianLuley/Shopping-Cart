@@ -3,8 +3,10 @@
       Input: quantity selected (integer)
       Output: product line totals (double)
 */
-function calculateProdTotal (price, quantity) {
-    return 0;   // replace this!
+function calculateProdTotal(price, quantity) {
+    prodTotal = price * quantity;
+
+    return prodTotal; // replace this!
 }
 
 /* 2. Complete the function below to calculate gross cart totals
@@ -15,8 +17,9 @@ function calculateProdTotal (price, quantity) {
       NOTE: since we haven't covered loops yet, please assume the array will
             always have 3 elements (i.e., bananas, oranges, apples)
 */
-function calculateSubtotal (prodTotals) {
-    return 0;   // replace this!
+function calculateSubtotal(prodTotals) {
+    prodTotals = subtotalApples + subtotalBananas + subtotalOranges;
+    return prodTotals; // replace this!
 }
 
 /* 3. Complete the function below to calculate added taxes
@@ -25,7 +28,8 @@ function calculateSubtotal (prodTotals) {
       Output: added taxes for the cart (double)
 */
 function calculateTaxes(grossTotal, taxRate) {
-    return 0;   // replace this!
+    Tax = grossTotal * taxRate;
+    return Tax; // replace this!
 }
 
 /* 4. Complete the function below to calculate total
@@ -34,8 +38,9 @@ function calculateTaxes(grossTotal, taxRate) {
       Input: added tax
       Output: total cart amount inclusive of shipping and taxes (double)
 */
-function calculateTotal (grossTotal, addedShipping, addedTax) {
-    return 0;   // replace this!
+function calculateTotal(grossTotal, addedShipping, addedTax) {
+    Total = grossTotal + addedShipping + addedTax;
+    return Total; // replace this!
 }
 
 /* 5. We want to inform the users when certain items run out of stock
@@ -62,5 +67,20 @@ function calculateTotal (grossTotal, addedShipping, addedTax) {
 
 */
 function updateProdAvailability(product, selected, availability) {
-    return; // replace this!
+    var label = "In stock";
+     if (availability - selected == 0) {
+        label = "Out of Stock";
+        availability = OUT_OF_STOCK;
+    updateProdAvailabilityLabel(product, label, availability)
+     }else if(availability - selected <= 5){
+         label = "Limited Supply";
+         availability = LIMITED_SUPPLY;
+    updateProdAvailabilityLabel(product, label, availability)
+    } else {
+        label = "In Stock";
+        availability = AVAILABLE;
+    updateProdAvailabilityLabel(product, label, availability)
+    };
+
+    return updateProdAvailability; // replace this!
 }
